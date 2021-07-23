@@ -13,20 +13,6 @@ var TimeInterval = setInterval(function ()  {
 },1000);
 
 
-// past,present,future
-function timeTracker() {
-    var timeTracker = moment().hour();
-    $(".time-block").each(function () {
-        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-        console.log(blockHour, timeTracker)
-    })
-}
-
-timeTracker();
-
-
-
-
 
 
 
@@ -58,4 +44,34 @@ var loadSchedule = function() {
     
 };
 
+
+
+
+// past,present,future
+function timeTracker() {
+    var timeTracker = moment().hour();
+    
+    $(".time-block").each(function () {
+        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+        console.log(blockHour, timeTracker)
+
+        if (blockHour < timeTracker) {
+            $(this).addClass("past");
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+        } 
+        else if (blockHour === timeTracker) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
+            $(this).removeClass("future");
+        } 
+        else {
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+        }
+    })
+}
+
 loadSchedule();
+timeTracker();
