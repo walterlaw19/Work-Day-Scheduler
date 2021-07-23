@@ -1,5 +1,5 @@
-// var todayIs = document.querySelector("#currentDay");
 
+// show current time and keep it running
 function updateTime() {
     currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
     $("#currentDay").text(currentTime);
@@ -13,30 +13,29 @@ var TimeInterval = setInterval(function ()  {
 },1000);
 
 
-
-function hourTracker() {
-    var currentHour = moment().hour();
+// past,present,future
+function timeTracker() {
+    var timeTracker = moment().hour();
     $(".time-block").each(function () {
         var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-        console.log(blockHour, currentHour)
+        console.log(blockHour, timeTracker)
     })
 }
 
-hourTracker();
+timeTracker();
 
 
 
 
 
-// $("#currentDay").text(currentTime);
 
 
-// $("#errand").on("click") 
 
+// const HoursIds
 const hourIds = [
-    "7a", "8a", "9a", "10a"
+    "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p"
 ]
-
+// for loop to get the text on all hours
 for (let index = 0; index < hourIds.length; index++) {
     $('#btn-' + hourIds[index]).on('click', function(event) {
         console.log($(event.target).siblings()[1].value)
@@ -45,4 +44,18 @@ for (let index = 0; index < hourIds.length; index++) {
     });
 }
 
+// load localstorage
+var loadSchedule = function() {
+    $("#hour9am .description").val(localStorage.getItem("9a"));
+    $("#hour10am .description").val(localStorage.getItem("10a"));
+    $("#hour11am .description").val(localStorage.getItem("11a"));
+    $("#hour12pm .description").val(localStorage.getItem("12p"));
+    $("#hour1pm .description").val(localStorage.getItem("1p"));
+    $("#hour2pm .description").val(localStorage.getItem("2p"));
+    $("#hour3pm .description").val(localStorage.getItem("3p"));
+    $("#hour4pm .description").val(localStorage.getItem("4p"));
+    $("#hour5pm .description").val(localStorage.getItem("5p"));
+    
+};
 
+loadSchedule();
