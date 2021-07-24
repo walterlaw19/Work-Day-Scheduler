@@ -14,7 +14,7 @@ This is a simple Work-Day-Scheduler web Application that allows you to save all 
 
 ## Website
 
-https://walterlaw19.github.io/code-quiz/
+https://walterlaw19.github.io/Work-Day-Scheduler/
 
 ## Screenshots
 
