@@ -1,21 +1,17 @@
 
-// show current time and keep it running
+// show current time 
 function updateTime() {
     currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
     $("#currentDay").text(currentTime);
 }
 
+// keep the time running
 updateTime()
 console.log(currentTime.toString());
 
 var TimeInterval = setInterval(function ()  {
     updateTime()
 },1000);
-
-
-
-
-
 
 
 // const HoursIds
@@ -45,10 +41,6 @@ var loadSchedule = function() {
     
 };
 
-
-
-loadSchedule();
-
 // past,present,future
 function timeTracker() {
     var timeTracker = moment().hour();
@@ -75,4 +67,5 @@ function timeTracker() {
     })
 }
 
+loadSchedule();
 timeTracker();
