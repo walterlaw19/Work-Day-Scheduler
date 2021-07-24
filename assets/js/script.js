@@ -17,6 +17,7 @@ var TimeInterval = setInterval(function ()  {
 
 
 
+
 // const HoursIds
 const hourIds = [
     "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p"
@@ -46,6 +47,7 @@ var loadSchedule = function() {
 
 
 
+loadSchedule();
 
 // past,present,future
 function timeTracker() {
@@ -73,5 +75,4 @@ function timeTracker() {
     })
 }
 
-loadSchedule();
 timeTracker();
